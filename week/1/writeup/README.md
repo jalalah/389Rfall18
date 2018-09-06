@@ -25,6 +25,6 @@ If, after going to my boss, I'm told the situation will be handled, I'd want to 
 
 If my company is unwilling to postpone the ECU release, I'd feel like it's out of my control and not my responsibility to push my ideas forward. I'd only feel partly responsible if harm occurred and I hadn't said *anything* to *anyone*. However, I wouldn't take responsibility if I told someone above me and it was their decision to not go forward with it.
 
-Despite knowing it's not my job to push forward after being rejected, I still wouldn't want people to be injured from something I could've prevented. Because of this, I would still be driven to push my discoveries forward so no one had to be harmed from something I could've prevented. I'd be doing this for my own emotional reasons and not because it's my job to.
+Despite believing it's not my job to push forward after being rejected, I still wouldn't want people to be injured from something I could've prevented. Because of this, I would still be driven to push my discoveries forward. I'd be doing this for my own emotional reasons (i.e. caring about someone being injured because of this) and not because it's my job to.
 
 After the postpone is rejected, I'd be more open to showing others what I've concluded about the firmware. I'd tell coworkers so they could get involved. After getting more people to agree with me and gathering opinions on how to continue onward, I'd try again to reason with the company that it's important this postpone takes place. If, after all of this, it's still rejected, that is as far as I'd go.

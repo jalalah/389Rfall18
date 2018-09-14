@@ -35,6 +35,10 @@ they linked to a site under construction. they were onin the browser when you cl
 
 ### Part 2 (55 pts)
 
-I used inteltechniques to find other social media accounts involved with Fred. On his instagram there were pictures of a plane ticket.
-I used nmap to find all the ports associated with the admin website IP. With that, I was able to fain access to the ornerstone Airlines administrator portal. 
-I used a lucky guess on his username being either kruegster1990 (what most of his usernames were) or kruegster (what his email is). To uncover his password, I used rockyou.txt
+I used inteltechniques to find social media accounts involved with Fred. I found Reddit, Twitter, and Instagram accounts. On his Instagram, there were pictures of a plane ticket. 
+
+I used nmap to find all the ports associated with the admin website IP. I uncovered port 1337 and 10010 were being unused. With nc, I was able to find that port 1337 gave me access to the Cornerstone Airlines administrator portal. 
+
+His username (kruegster) was found on his website. To uncover his password, I used rockyou.txt and looped through them using a python script until I found out what his password was (pokemon)
+
+I went through his home directory, found a directory named flight records, and used the picture of the plane ticket on his instagram to uncover which txt file had the flag in it: CMSC389R -{c0rn3rstone-air-27670}

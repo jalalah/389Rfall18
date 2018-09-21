@@ -20,9 +20,7 @@ Thanks for reaching out to me on how to fix vulnerabilities within your website!
 
 I was able to access the associated server (admin page) of your website through an open port. Open ports are dangerous because they're an attack surface. They can expose information about you and your system that you do not want out there. 
 
-Wikipedia provides a wonderful, yet contaned, description of what open ports are. I highly recommend taking the time to read [this](https://en.wikipedia.org/wiki/Open_port)!
-
-Pay particular attention to the final three paragraphs, they go over how a port can be closed (which is what you want to do to ports that are unused) by using a firewall. Using a firewall would be a security practice that will prevent security leaks that ports can cause. 
+Wikipedia provides a wonderful, yet contaned, description of what open ports are. I highly recommend reading [this](https://en.wikipedia.org/wiki/Open_port)! Pay particular attention to the final three paragraphs, they go over how a port can be closed (which is what you want to do to ports that are unused) by using a firewall. Using a firewall would be a security practice that will prevent security leaks.
 
 * Firewalls
 

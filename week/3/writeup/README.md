@@ -69,9 +69,9 @@ We have social media accounts so people can see things we post. However, we all 
 
 ### Wrap Up
 
-I was able to get as far as I did into your website because of an open port, a weak password, and the plane ticket you posted on your Instagram. Even if I discovered the open port, if you had a strong password I wouldn't have been able to get any further. If I still managed to crack your password, if you hadn't posted your plane ticket online, I wouldn't have been able to know exactly which .txt file pertained to your flight.
+I was able to get as far as I did into your server because of an open port, a weak password, and the plane ticket you posted on your Instagram. Even if I discovered the open port, if you had a strong password I wouldn't have been able to get any further. If I still managed to crack your password, if you hadn't posted your plane ticket online, I wouldn't have been able to know exactly which .txt file pertained to your flight.
 
-There is no way to have perfect security online, but we want to get as close to perfection as possible. By building solid security walls, one behind another, you can save yourself from getting breached. 
+it's challenging to have flawless security online, but we want to get as close to perfection as possible. By building solid security walls, one behind another, you can save yourself from getting breached. 
 
 If you have any further questions about something I've listed here, or any other inquiries pertaining to security, please reach out to me again! 
 

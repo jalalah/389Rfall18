@@ -9,15 +9,13 @@ I pledge on my honor that I have not given or received any unauthorized assistan
 
 Digital acknowledgement of honor pledge: Jalalah Abdullah
 
-## Assignment 3 Writeup
-
-### Part 1 (100 pts)
+======
 
 Fred Kruegster,
 
 Thanks for reaching out to me on how to fix vulnerabilities within your website! I've compiled a list of some actions you can take to give your website better security.
 
-### Open ports
+### Open Ports
 
 I was able to access the associated server (admin page) of your website through an open port. Open ports are dangerous because they're an attack surface that can exploit information about you and your system. Even more worrisome, all you need is an IP address of a website (something that's easy to obtain) to scan the site for open ports. Port scanning is a common tool used by malicious attackers to find vulnerabilities within a server.
 
@@ -39,7 +37,7 @@ On you Instagram, 99% of what you posted about were Pokemon. Also, on your Twitt
 
 To form a strong password, you want to use more than just lower case characters and a single word. Using numbers, capital letters, symbols, and longer phrases will all help make your password stronger.
 
-Say you still wanted to choose a password involving pokemon. You could definitely do that if you use the suggestions I provided above. Here are a few examples (please do not use any of these!):
+Say you still wanted to choose a password involving pokemon. You could definitely do that if you use the suggestions I provided above. Here are a few examples:
 
 1. ire11yLOVEp0K3mOn
 2. P0K3MON1sMYf@vor!t3
@@ -61,7 +59,7 @@ From your Twitter alone I was able to find your Instagram, Reddit, email, compan
 
 Now, knowing all this information through the internet isn't necessarily bad. Social media was created as an outlet to get to know people and stay connected. In fact, most social media accounts give an option to put a location, interests, other social media accounts, personal links, etc. Yet, knowing that all this information is out there for anyone and everyone to see, you have to be mindful of what you post. 
 
-The plane ticket that you posted on your Instagram might've seemed like an innocent post, but not everyone will look at that and think 'oh nice, he's going to San Francisco!'. Some people can take that information to harm you. In my case, that information was used to find which flight record pertained to you (after I broke into your server through an open port and weak password). 
+The plane ticket that you posted on your Instagram might've seemed like an innocent post, but not everyone will look at that and think 'oh nice, he's going to San Francisco!'. Some people can take that information to harm you. 
 
 There are practices to make your social media accounts more secure. Some examples are making your account private, only letting people you know follow you, and a strong password. For further practices, [investor.gov](investor.gov), a website dedicated to fight against fraud, has provided a short [article](https://www.investor.gov/protect-your-investments/fraud/how-avoid-fraud/protect-your-social-media-accounts) on how to protect your online accounts.
 
@@ -69,7 +67,7 @@ We have social media accounts so people can see things we post. However, we all 
 
 ### Wrap Up
 
-I was able to get as far as I did into your website because of an open port, a weak password, and the plane ticket you posted on your Instagram. Even if I discovered the open port, if you had a really strong password I wouldn't have been able to get any further. If I still managed to crack your password, if you hadn't posted your plane ticket online, I wouldn't have been able to know exactly which .txt file pertained to your flight.
+I was able to get as far as I did into your website because of an open port, a weak password, and the plane ticket you posted on your Instagram. Even if I discovered the open port, if you had a strong password I wouldn't have been able to get any further. If I still managed to crack your password, if you hadn't posted your plane ticket online, I wouldn't have been able to know exactly which .txt file pertained to your flight.
 
 There is no way to have perfect security online, but we want to get as close to perfection as possible. By building solid security walls, one behind another, you can save yourself from getting breached. 
 

@@ -16,7 +16,7 @@ Fred Kruegster,
 
 Thanks for reaching out to me on how to fix vulnerabilities within your website! I've compiled a list of some actions you can take to give your website, as well as your online accounts in general, better security.
 
-### 1 Open ports
+### Open ports
 
 I was able to access the associated server (admin page) of your website through an open port. Open ports are dangerous because they're an attack surface. They can expose information about you and your system that you do not want out there. 
 
@@ -30,7 +30,7 @@ A firewall can block unauthorized access to your website. Think of it like a sec
 
 Luckily, there are plenty of guides/tutorials that can help you set up a firewall on your website by yourself! I recommend [this](https://www.dummies.com/web-design-development/web-hosting/how-to-install-a-firewall-on-your-website/) tutorial. However, there are plenty of other options! Always remember: Google is your friend!
 
-### * Passwords
+### Passwords
 
 We all want passwords we can remember. But at the same time, we don't want it to be so easy anyone can come up with the passwords we've chosen. Because of this, you want to avoid choosing passwords that include common phrases, pet names, your favorite sports team, etc.
 
@@ -48,10 +48,24 @@ Say you still wanted to choose a password like pokemon. You could definitely do 
 
 These are phrases that would be easy for you to remember, but they're written in a way that's difficult for people to think up of. They're also phrases that wouldn't be on a basic password list like rockyou.txt (which is the list I used to hack into your system).
 
-For more insentive on choosing a stronger password, take a look at a [hacker's](http://www.alphr.com/features/371158/top-ten-password-cracking-techniques) perspective when it comes to cracking passwords. Being well informed of what a potential threat will try on you will help you create a password that doesn't match a criteria of an easy breach. 
+For more incentive on choosing a stronger password, take a look at a [hacker's](http://www.alphr.com/features/371158/top-ten-password-cracking-techniques) perspective when it comes to cracking passwords. Being well informed of what a a hacker's tactics are will help you defend yourself better. 
+
+Some final notes: 
+1. Don't use the same password across different accounts
+2. Write your passwords down on *paper* (as opposed to keeping it in a document on your laptop or in notes on your phone)
+3. Don't share your passwords with anyone! And if you *do* have to share your password with someone, for whatever reason, don't share it through the internet! (e.g. an email or text)
+
+### Social Media Safety
+
+We have social media accounts so people can see things we post. But you have to be mindful about what you put out there and the potential danger people can do with your information. Don't make yourself an easy target!
 
 ### Wrap Up
 
 I was able to get as far as I did into your website because of an open port, a weak password, and the personal information (plane ticket) you posted on your instagram (have fun in San Francisco this winter:) ). Even if I got into the port, if you had a really strong password I wouldn't have been able to get any further. If I did so happen to still crack your password, if you hadn't posted your plane ticket online, I wouldn't have been able to know exactly which .txt file pertained to your flight.
 
-We have social media accounts so people can see things we post. But you have to be mindful about what you put out there and the potential danger people can do with your information. Don't make yourself an easy target!
+If you have any further questions about something I've listed here, or any other inquiries pertaining to security, please reach out to me again! 
+
+All the best,
+Jalalah
+
+

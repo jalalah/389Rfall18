@@ -20,7 +20,7 @@ Thanks for reaching out to me on how to fix vulnerabilities within your website!
 
 I was able to access the associated server (admin page) of your website through an open port. Open ports are dangerous because they're an attack surface. They can expose information about you and your system that you do not want out there. 
 
-Wikipedia provides a wonderful, yet contaned, description of what open ports are. I highly recommend taking the time to read [this] (https://en.wikipedia.org/wiki/Open_port)!
+Wikipedia provides a wonderful, yet contaned, description of what open ports are. I highly recommend taking the time to read [this](https://en.wikipedia.org/wiki/Open_port)!
 
 Pay particular attention to the final three paragraphs, they go over how a port can be closed (which is what you want to do to ports that are unused) by using a firewall. Using a firewall would be a security practice that will prevent security leaks that ports can cause. 
 
@@ -28,7 +28,7 @@ Pay particular attention to the final three paragraphs, they go over how a port 
 
 A firewall can block unauthorized access to your website. Think of it like a security guard and your website is the door this security person is guarding. The security gaurd (firewall) will act as someone who turns away unauthorized visitors to that door (website).
 
-Luckily, there are plenty of guides/tutorials that can help you set up a firewall on your website by yourself! I recommend [this] (https://www.dummies.com/web-design-development/web-hosting/how-to-install-a-firewall-on-your-website/) tutorial. However, there are plenty of other options! Always remember: Google is your friend!
+Luckily, there are plenty of guides/tutorials that can help you set up a firewall on your website by yourself! I recommend [this](https://www.dummies.com/web-design-development/web-hosting/how-to-install-a-firewall-on-your-website/) tutorial. However, there are plenty of other options! Always remember: Google is your friend!
 
 ### * Passwords
 
@@ -48,7 +48,7 @@ Say you still wanted to choose a password like pokemon. You could definitely do 
 
 These are phrases that would be easy for you to remember, but they're written in a way that's difficult for people to think up of. They're also phrases that wouldn't be on a basic password list like rockyou.txt (which is the list I used to hack into your system).
 
-For more insentive on choosing a stronger password, take a look at a [hacker's] (http://www.alphr.com/features/371158/top-ten-password-cracking-techniques) perspective when it comes to cracking passwords. Being well informed of what a potential threat will try on you will help you create a password that doesn't match a criteria of an easy breach. 
+For more insentive on choosing a stronger password, take a look at a [hacker's](http://www.alphr.com/features/371158/top-ten-password-cracking-techniques) perspective when it comes to cracking passwords. Being well informed of what a potential threat will try on you will help you create a password that doesn't match a criteria of an easy breach. 
 
 ### Wrap Up
 

@@ -14,23 +14,33 @@ Digital acknowledgement of honor pledge: Jalalah Abdullah
 
 Fred Kruegster,
 
-Thanks for reaching out! I've compiled a list of some actions you can take to give your website, as well as your online accounts in general, better security.
+Thanks for reaching out to me on how to fix vulnerabilities within your website! I've compiled a list of some actions you can take to give your website, as well as your online accounts in general, better security.
 
-### * Open ports
+### 1 Open ports
 
-I was able to access the associated server (admin page) of your website through an open port. Open ports are dangerous because they're an attack surface. They can expose information about you and your system that you do not want out there. Basically, they're a huge potential security leak.
+I was able to access the associated server (admin page) of your website through an open port. Open ports are dangerous because they're an attack surface. They can expose information about you and your system that you do not want out there. 
 
-Because of these reason, you want to be sure you don't have any open ports on your website. 
+Wikipedia provides a wonderful, yet contaned, description of what open ports are. I highly recommend taking the time to read [this] (https://en.wikipedia.org/wiki/Open_port)!
+
+Pay particular attention to the final three paragraphs, they go over how a port can be closed (which is what you want to do to ports that are unused) by using a firewall. Using a firewall would be a security practice that will prevent security leaks that ports can cause. 
+
+* Firewalls
+
+A firewall can block unauthorized access to your website. Think of it like a security guard and your website is the door this security person is guarding. The security gaurd (firewall) will act as someone who turns away unauthorized visitors to that door (website).
+
+Luckily, there are plenty of guides/tutorials that can help you set up a firewall on your website by yourself! I recommend [this] (https://www.dummies.com/web-design-development/web-hosting/how-to-install-a-firewall-on-your-website/) tutorial. However, there are plenty of other options! Always remember: Google is your friend!
 
 ### * Passwords
 
-We all want passwords we can remember. But at the same time, we don't want it to be so easy anyone can come up with the passwords we've chosen. We also don't want to choose passwords that involve well known things people know we love. These include hobbies, pet names, favorite sports team, etc.
+We all want passwords we can remember. But at the same time, we don't want it to be so easy anyone can come up with the passwords we've chosen. Because of this, you want to avoid choosing passwords that include common phrases, pet names, your favorite sports team, etc.
 
 Let's take your password for example: pokemon
 
-On you Instagram, 99% of what you posted about were Pokemon (Pokemen?). Also, on your Twitter you retweeted something pertaining to Pokemon. If I am trying to hack into your system, I'm going to start with passwords that are common/what I believe you'd pick. I don't even have to know you personally to think of Pokemon; all I would have to do is look at your social media accounts.
+On you Instagram, 99% of what you posted about were Pokemon. Also, on your Twitter you retweeted something pertaining to Pokemon. If I am trying to break into your system, I'm going to start with passwords that are common/what I believe you'd pick. I don't even have to know you personally to think of Pokemon; all I would have to do is look at your social media accounts.
 
-You can choose a password like pokemon if you alter the spelling and also make it into a longer phrase using numbers, capital letters, and symbols. Here are a few examples:
+To form a strong password, you want to use more than just lower case characters. Using numbers, capital letters, and symbols all help make your password stronger and more difficult to uncover.
+
+Say you still wanted to choose a password like pokemon. You could definitely do that if you alter the spelling and also make it into a longer phrase using the suggestions I provided above. Here are a few examples (please do not use any of these!):
 
 1. ire11yLOVEp0K3mOn
 2. P0K3MON1sMYf@vor!t3
@@ -38,11 +48,7 @@ You can choose a password like pokemon if you alter the spelling and also make i
 
 These are phrases that would be easy for you to remember, but they're written in a way that's difficult for people to think up of. They're also phrases that wouldn't be on a basic password list like rockyou.txt (which is the list I used to hack into your system).
 
-### * Firewalls
-
-An even further security practice that will help ensure your site is secure is using a firewall. A firewall can block unauthorized access to your website. Think of it like a security guard and your website is the door this security person is guarding. The security gaurd (firewall) will act as someone who turns away unauthorized visitors to that door (website).
-
-Luckily, there are plenty of guides/tutorials that can help you set up a firewall on your website by yourself!
+For more insentive on choosing a stronger password, take a look at a [hacker's] (http://www.alphr.com/features/371158/top-ten-password-cracking-techniques) perspective when it comes to cracking passwords. Being well informed of what a potential threat will try on you will help you create a password that doesn't match a criteria of an easy breach. 
 
 ### Wrap Up
 

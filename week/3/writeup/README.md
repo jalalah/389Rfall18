@@ -2,6 +2,7 @@ Writeup 3 - OSINT II, OpSec and RE
 ======
 
 Name: Jalalah Abdullah
+
 Section: 0101
 
 I pledge on my honor that I have not given or received any unauthorized assistance on this assignment or examination.
@@ -20,7 +21,7 @@ Thanks for reaching out to me on how to fix vulnerabilities within your website!
 
 I was able to access the associated server (admin page) of your website through an open port. Open ports are dangerous because they're an attack surface. They can expose information about you and your system that you do not want out there. 
 
-Wikipedia provides a wonderful, yet contaned, description of what open ports are. I highly recommend reading [this](https://en.wikipedia.org/wiki/Open_port)! Pay particular attention to the final three paragraphs, they go over how a port can be closed (which is what you want to do to ports that are unused) by using a firewall. Using a firewall would be a security practice that will prevent security leaks.
+Wikipedia provides a wonderful, yet contained, description of what open ports are. I highly recommend reading [this](https://en.wikipedia.org/wiki/Open_port)! Pay particular attention to the final three paragraphs, they go over how a port can be closed (which is what you want to do to ports that are unused) by using a firewall. Using a firewall would be a security practice that will prevent security leaks.
 
 * Firewalls
 
@@ -57,9 +58,9 @@ Some final notes:
 
 From your Twitter alone I was able to find out where you lived, your Instagram account, your Reddit account, your email, and your company website. I didn't do anything beyond using google (and other techniques mentioned in my publushed report) to search for this information. 
 
-Now, knowing all this information through the internet isn't necessarily bad. Social media was created as an outlet to get to know people and stay connected. In fact, most social media accounts give an option to put a location, birthday, personal links (like your website), etc. Yet, knowing that all this information is out there for anyone and everyone to see, you have to be mindful of what you post. And maybe even not put as much out there for your own safety.
+Now, knowing all this information through the internet isn't necessarily bad. Social media was created as an outlet to get to know people and stay connected. In fact, most social media accounts give an option to put a location, birthday, personal links (like your website), etc. Yet, knowing that all this information is out there for anyone and everyone to see, you have to be mindful of what you post. 
 
-The plane ticket that you posted on your Instagram might've seemed like an innocent post, but not everyone will look at that and think 'oh nice, he's going to San Francisco!'. Some people can take that information to harm you. In my case, that information was used to find which flight record pertained to you (after I broke into your admin page through an empty port and weak password). 
+The plane ticket that you posted on your Instagram might've seemed like an innocent post, but not everyone will look at that and think 'oh nice, he's going to San Francisco!'. Some people can take that information to harm you. In my case, that information was used to find which flight record pertained to you (after I broke into your admin page through an open port and weak password). 
 
 There are practices to make your social media accounts more secure. Some examples are making your account private, only letting people you know follow you, and a strong password. For further practices, [Investor.gov](investor.gov), a website dedicated to fight against fruad, has provided a short [article](https://www.investor.gov/protect-your-investments/fraud/how-avoid-fraud/protect-your-social-media-accounts) on how to protect your online accounts.
 
@@ -67,11 +68,14 @@ We have social media accounts so people can see things we post. However, you hav
 
 ### Wrap Up
 
-I was able to get as far as I did into your website because of an open port, a weak password, and the personal information (plane ticket) you posted on your instagram (have fun in San Francisco this winter:) ). Even if I got into the port, if you had a really strong password I wouldn't have been able to get any further. If I did so happen to still crack your password, if you hadn't posted your plane ticket online, I wouldn't have been able to know exactly which .txt file pertained to your flight.
+I was able to get as far as I did into your website because of an open port, a weak password, and the personal information (plane ticket) you posted on your instagram. Even if I discovered the open port, if you had a really strong password I wouldn't have been able to get any further. If I did so happen to still crack your password, if you hadn't posted your plane ticket online, I wouldn't have been able to know exactly which .txt file pertained to your flight.
+
+There is no way to have perfect security online, but we want to get as close to perfection as possible. By building solid security walls, one behind another, you can save yourself from getting breached. 
 
 If you have any further questions about something I've listed here, or any other inquiries pertaining to security, please reach out to me again! 
 
 All the best,
+
 Jalalah
 
 

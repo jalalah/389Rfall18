@@ -14,7 +14,7 @@ Digital acknowledgement of honor pledge: Jalalah Abdullah
 
 Fred Kruegster,
 
-Thanks for reaching out to me on how to fix vulnerabilities within your website! I've compiled a list of some actions you can take to give your website, as well as your online accounts in general, better security.
+Thanks for reaching out to me on how to fix vulnerabilities within your website! I've compiled a list of some actions you can take to give your website better security.
 
 ### Open ports
 
@@ -36,15 +36,15 @@ Let's take your password for example: pokemon
 
 On you Instagram, 99% of what you posted about were Pokemon. Also, on your Twitter you retweeted something pertaining to Pokemon. If I am trying to break into your system, I'm going to start with passwords that are common/what I believe you'd pick. I don't even have to know you personally to think of Pokemon; all I would have to do is look at your social media accounts.
 
-To form a strong password, you want to use more than just lower case characters. Using numbers, capital letters, and symbols all help make your password stronger and more difficult to uncover.
+To form a strong password, you want to use more than just lower case characters and a single word. Using numbers, capital letters, and symbols will all help make your password stronger and more difficult to uncover.
 
-Say you still wanted to choose a password like pokemon. You could definitely do that if you alter the spelling and also make it into a longer phrase using the suggestions I provided above. Here are a few examples (please do not use any of these!):
+Say you still wanted to choose a password involving pokemon. You could definitely do that if you alter the spelling and also make it into a longer phrase using the suggestions I provided above. Here are a few examples (please do not use any of these!):
 
 1. ire11yLOVEp0K3mOn
 2. P0K3MON1sMYf@vor!t3
 3. p0KEM0N!$0gr34T!
 
-These are phrases that would be easy for you to remember, but they're written in a way that's difficult for people to think up of. They're also phrases that wouldn't be on a basic password list like rockyou.txt (which is the list I used to hack into your system).
+These are phrases that would be easy for you to remember, but they're written in a way that's difficult for people to think up of. They're also phrases that wouldn't be on a basic password list like [rockyou.txt](https://www.scrapmaker.com/view/dictionaries/rockyou.txt) (which is the wordlist I used to hack into your system).
 
 For more incentive on choosing a stronger password, take a look at a [hacker's](http://www.alphr.com/features/371158/top-ten-password-cracking-techniques) perspective when it comes to cracking passwords. Being well informed of what a a hacker's tactics are will help you defend yourself better. 
 
@@ -55,7 +55,15 @@ Some final notes:
 
 ### Social Media Safety
 
-We have social media accounts so people can see things we post. But you have to be mindful about what you put out there and the potential danger people can do with your information. Don't make yourself an easy target!
+From your Twitter alone I was able to find out where you lived, your Instagram account, your Reddit account, your email, and your company website. I didn't do anything beyond using google (and other techniques mentioned in my publushed report) to search for this information. 
+
+Now, knowing all this information through the internet isn't necessarily bad. Social media was created as an outlet to get to know people and stay connected. In fact, most social media accounts give an option to put a location, birthday, personal links (like your website), etc. Yet, knowing that all this information is out there for anyone and everyone to see, you have to be mindful of what you post. And maybe even not put as much out there for your own safety.
+
+The plane ticket that you posted on your Instagram might've seemed like an innocent post, but not everyone will look at that and think 'oh nice, he's going to San Francisco!'. Some people can take that information to harm you. In my case, that information was used to find which flight record pertained to you (after I broke into your admin page through an empty port and weak password). 
+
+There are practices to make your social media accounts more secure. Some examples are making your account private, only letting people you know follow you, and a strong password. For further practices, [Investor.gov](investor.gov), a website dedicated to fight against fruad, has provided a short [article](https://www.investor.gov/protect-your-investments/fraud/how-avoid-fraud/protect-your-social-media-accounts) on how to protect your online accounts.
+
+We have social media accounts so people can see things we post. However, you have to be mindful about what you put out there and the potential danger people can do with your information. Don't make yourself an easy target!
 
 ### Wrap Up
 

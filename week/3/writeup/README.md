@@ -9,7 +9,9 @@ I pledge on my honor that I have not given or received any unauthorized assistan
 
 Digital acknowledgement of honor pledge: Jalalah Abdullah
 
-======
+## Assignment 3 Writeup
+
+### Part 1 (100 pts)
 
 Fred Kruegster,
 

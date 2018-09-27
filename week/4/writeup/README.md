@@ -23,9 +23,9 @@ Using netcat to connect to Cornerstone Airline's system, I entered the command:
 
 Once remotely connected to the system, I was prompted to enter an IP address.
 
-When I entered an IP address, the execution went as expected and I recieved data back involving the reachability of the host. This is what Krueger's intention was with this new server: to remotely be able to check uptime of internet connected device's on his company's network.
+When I entered an IP address, the execution went as expected and I recieved data back involving the reachability of the host. This is what Krueger's intention was with this new server: to remotely check uptime of internet connected device's on his company's network.
 
-However, by just tacking extra commands onto the input, like this: 
+However, by tacking extra commands onto the input, like this: 
 
 *8.8.8.8; ls*
 
@@ -33,7 +33,7 @@ I was able to execute commands on the root of Krueger's server. In fact, I could
 
 *garbage; ls*
 
-Now, it's obvious Kreuger's new system is vulnerable to a Command Injection attack. I set out to find out what was allowing extra commands to be executed.
+Now, it's obvious Kreuger's new system is vulnerable to a Command Injection attack. I set out to find what was allowing extra commands to be executed.
 
 With further exploring, I uncovered the shell Krueger is using to check uptime. The shell, named *container_startup.sh*, was located in the opt directory. In Krueger's shell, he's accepting *everything* the user types into the command line as input. This is why the server allows you to execute commands beyond what Krueger intended to be executed.
 
@@ -49,7 +49,7 @@ In order to execute multiple commands on Cornerstone Airline's server, I'd have 
 
 The reason everything has to be within one string is because the server kicks you out after receiving a single input (that is how Krueger constructed his shell).
 
-I leveraged this vulnerability by creating a Python script.
+I leveraged this vulnerability by creating a Python script. The script creates an interactive shell on the Cornerstone Airline's server. The scropt can be found [here](https://github.com/jalalah/389Rfall18/blob/master/week/4/shell.py).  
 
 ## Layout Of The Script
 
@@ -59,17 +59,15 @@ The only commands you can execute on the outer shell are as follows:
 
 * To launch into the interactive (inner) shell: shell 
 * Display a help menu: help
-* Download files: pull <remote path> <local path>
+* Download files: pull -remote path- -local path-
 * Quit: quit
 
-The inner shell (what's launched when executing shell) allows you to be directly on the Cornerstone Airline's server. With this, you'll be able to navigate through Krueger's server with full root privilidges. 
+The inner shell allows you to be directly on the Cornerstone Airline's server. With this, you'll be able to navigate through Krueger's server with full root privilidges. 
 
 ## Makeup Of the Script
 
 The script was created in a simple manner, it only requires: a single method, loops, conditionals, and a socket. 
 
-When first running the code, you are within the outer shell and are restricted to the four commands listed above. Each command eligible within the outer shell are executed by using if statements then calling the desired *execute_cmd* method. 
+When first running the code, you are within the outer shell and are restricted to the four commands listed above. Each command eligible within the outer shell are executed by using if statements then calling the *execute_cmd* method. 
 
 When launching the inner shell, a similiar process takes place. The only difference is tracking the directory the user cd's into. 
-
-The shell code can be found [here](https://github.com/jalalah/389Rfall18/blob/master/week/4/shell.py). 

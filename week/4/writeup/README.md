@@ -35,17 +35,17 @@ I was able to execute commands on the root of Krueger's server. In fact, I could
 
 Now that it's concluded Kreuger's new system is vulnerable to a Command Injection attack, I set out to find what was allowing extra commands to be executed.
 
-With further exploring, I uncovered the shell Krueger is using to check uptime. The shell, named *container_startup.sh*, was located in the opt directory. In Krueger's shell, he's accepting *everything* the user types into the command line as input. This is why the server allows you to execute commands beyond what Krueger intended to be executed.
+With further exploring, I uncovered the script Krueger is using to check uptime. The script, named *container_startup.sh*, was located in the opt directory. In Krueger's script, he's accepting *everything* the user types into the command line as input. This is why the server allows you to execute commands beyond what Krueger intended to be executed.
 
-To fix this issue, Krueger can use input validation to ensure the only string that is accepted is a properly formatted IP Adress and nothing else. 
+To fix this issue, Krueger can use input validation to ensure the only input that is accepted is a properly formatted IP Adress and nothing else. 
 
-The flag that was found in the home directory: CMSC389R-{p1ug_as_a_$erv1c3}
+The flag that was found in the home directory using the input string "garbage; cd home; cat flag.txt": CMSC389R-{p1ug_as_a_$erv1c3}
 
 # Creating An Interactive Shell
 
-In order to execute multiple commands on Cornerstone Airline's server, I'd have to input them all together as one string with semicolons separating the individual commands. As an example, this is the input I entered to find the flag: 
+In order to execute multiple commands on Cornerstone Airline's server, I'd have to input them all together as one string with semicolons separating the individual commands. As an example, this is the input I entered to find Kreuger's script: 
 
-*garbage; cd home; cat flag.txt*
+*garbage; cd opt; cat container_startup.sh*
 
 The reason everything has to be within one string is because the server kicks you out after receiving a single input (that is how Krueger constructed his shell).
 

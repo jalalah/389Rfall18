@@ -15,7 +15,7 @@ Digital acknowledgement of honor pledge: Jalalah Abdullah
 
 Upon hearing the rumors of Cornerstone Airline's new server being vulnerable to a Command Injection attack, I tested for the vulnerability myself. 
 
-A [Command Injection attack](https://www.netsparker.com/blog/web-security/command-injection-vulnerability/) is when a user (or application) is able to pass data to a system by tagging the data onto an already antincipated response. For example, if a system is expecting a username, you can provide the username and then add extra data after. With the additional data, the system will receive and execute it if it's vulnerable to a Command Injection attack. Knowing about the rumors and the format of Command Injection attacks, I entered into Fred Kreuger's newly created server with a goal to exploit this potential vulnerability. 
+A [Command Injection attack](https://www.netsparker.com/blog/web-security/command-injection-vulnerability/) is when a user (or application) is able to pass data to a system by tagging the data onto an already antincipated response. For example, if a host operating system is prompting you for a username, you can provide the username and then add extra data after. With the additional data, the system will receive and execute it if it's vulnerable to a Command Injection attack. Knowing about the rumors and the format of Command Injection attacks, I entered into Fred Kreuger's newly created server with a goal to exploit this potential vulnerability. 
 
 Using netcat to connect to Cornerstone Airline's system, I entered the command: 
 

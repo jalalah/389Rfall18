@@ -33,7 +33,7 @@ I was able to execute commands on the root of Krueger's server. In fact, I could
 
 *garbage; ls*
 
-Now, it's obvious Kreuger's new system is vulnerable to a Command Injection attack. I set out to find what was allowing extra commands to be executed.
+Now that it's concluded Kreuger's new system is vulnerable to a Command Injection attack, I set out to find what was allowing extra commands to be executed.
 
 With further exploring, I uncovered the shell Krueger is using to check uptime. The shell, named *container_startup.sh*, was located in the opt directory. In Krueger's shell, he's accepting *everything* the user types into the command line as input. This is why the server allows you to execute commands beyond what Krueger intended to be executed.
 

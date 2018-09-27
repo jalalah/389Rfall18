@@ -11,7 +11,7 @@ Digital acknowledgement of honor pledge: Jalalah Abdullah
 
 ## Assignment 4 Writeup
 
-# Exploiting Cornerstone Airline's Command Injection Vulnerability 
+# Exploiting Cornerstone Airline's Vulnerability 
 
 Upon hearing rumors of Cornerstone Airline's new server being vulnerable to a [command injection attack](https://www.netsparker.com/blog/web-security/command-injection-vulnerability/), I tested for the vulnerability myself. A Command Injection attack is when a user (or application) is able to pass data to a system by tagging it onto an antincipated response. Knowing this, I entered into Fred Kreuger's newly created server with a goal to exploit this potential vulnerability. 
 

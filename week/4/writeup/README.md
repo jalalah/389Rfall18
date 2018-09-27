@@ -75,4 +75,4 @@ The script was created in a simple manner, it only required:
 
 When first running the code, you are within the outer shell and are restricted to the four commands listed previously. Each command eligible within the outer shell are executed by using if statements then calling the *execute_cmd* method. 
 
-When launching the inner shell, a similar process takes place. The only difference is tracking the directory the user cd's into. 
+When launching the inner shell, a similar process takes place. The only difference is tracking the directory the user decides to cd into. 

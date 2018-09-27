@@ -66,8 +66,13 @@ The inner shell allows you to be directly on the Cornerstone Airline's server. W
 
 ## Makeup Of the Script
 
-The script was created in a simple manner, it only requires: a single method, loops, conditionals, and a socket. 
+The script was created in a simple manner, it only requires: 
 
-When first running the code, you are within the outer shell and are restricted to the four commands listed above. Each command eligible within the outer shell are executed by using if statements then calling the *execute_cmd* method. 
+* A Single Method
+* Loops
+* Conditionals
+* A Socket. 
+
+When first running the code, you are within the outer shell and are restricted to the four commands listed previously. Each command eligible within the outer shell are executed by using if statements then calling the *execute_cmd* method. 
 
 When launching the inner shell, a similiar process takes place. The only difference is tracking the directory the user cd's into. 

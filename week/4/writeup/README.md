@@ -15,7 +15,7 @@ Digital acknowledgement of honor pledge: Jalalah Abdullah
 
 Upon hearing the rumors of Cornerstone Airline's new server being vulnerable to a Command Injection attack, I tested for the vulnerability myself. 
 
-A [Command Injection attack](https://www.netsparker.com/blog/web-security/command-injection-vulnerability/) is when a user (or application) is able to pass data to a system by tagging the data onto an already antincipated response. For example, if a host operating system is prompting you for a username, you can provide the username and then add extra data after. With the additional data, the system will receive and execute it if it's vulnerable to a Command Injection attack. Knowing about the rumors and the format of Command Injection attacks, I entered into Fred Krueger's newly created server with a goal to exploit this potential vulnerability. 
+A [Command Injection attack](https://www.netsparker.com/blog/web-security/command-injection-vulnerability/) is when a user (or application) is able to pass data to a system by tagging the data onto an already anticipated response. For example, if a host operating system is prompting you for a username, you can provide the username and then add extra data afterwards. With the additional data, the system will receive and execute it if it's vulnerable to a Command Injection attack. Knowing about the rumors and the format of Command Injection attacks, I entered into Fred Krueger's newly created server with a goal to exploit this potential vulnerability. 
 
 Using netcat to connect to Cornerstone Airline's system, I entered the command: 
 
@@ -37,7 +37,7 @@ Now that it's concluded Krueger's new system is vulnerable to a Command Injectio
 
 With further exploring, I uncovered the script Krueger is using to check uptime. The script, named *container_startup.sh*, was located in the opt directory. In Krueger's script, he's accepting *everything* the user types into the command line as input. This is why the server allows you to execute commands beyond what Krueger intended to be executed.
 
-To fix this issue, Krueger can use input validation to ensure the only input that is accepted is a properly formatted IP Adress and nothing else. 
+To fix this issue, Krueger can use input validation to ensure the only input that is accepted is a properly formatted IP address and nothing else. 
 
 The flag that was found using the input string "garbage; cd home; cat flag.txt": CMSC389R-{p1ug_as_a_$erv1c3}
 
@@ -62,17 +62,17 @@ The only commands you can execute on the outer shell are as follows:
 * Download files: pull -remote path- -local path-
 * Quit: quit
 
-The inner shell allows you to be directly on the Cornerstone Airline's server. With this, you'll be able to navigate through Krueger's server with full root privilidges. 
+The inner shell allows you to be directly on the Cornerstone Airline's server. With this, you'll be able to navigate through Krueger's server with full root privileges.  That means you do not have to worry about having all your commands in one input string, instead, it acts like any normal command line.
 
 ## Makeup Of the Script
 
-The script was created in a simple manner, it only requires: 
+The script was created in a simple manner, it only required: 
 
 * A Single Method
 * Loops
 * Conditionals
-* A Socket. 
+* A Socket
 
 When first running the code, you are within the outer shell and are restricted to the four commands listed previously. Each command eligible within the outer shell are executed by using if statements then calling the *execute_cmd* method. 
 
-When launching the inner shell, a similiar process takes place. The only difference is tracking the directory the user cd's into. 
+When launching the inner shell, a similar process takes place. The only difference is tracking the directory the user cd's into. 

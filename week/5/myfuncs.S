@@ -9,7 +9,6 @@ my_memset:
 	mov rax, 0    ;counter to access memory
 
 add_val:
-	
 	mov byte [rdi+rax], sil ; copying the value into the array
 	inc rax       ; increasing counter
 	loop add_val  ; this automatically decreases rcx by one
@@ -18,7 +17,7 @@ add_val:
                       ;and restores our saved base pointer, effectively
                       ;restoring our previous stack frame
         ret           ;jumps to the top value on the stack, hopefully the return address!
-
+	
 
 global my_strncpy     ;export the 'my_strncpy' symbol to be accessible outside of file
 my_strncpy:

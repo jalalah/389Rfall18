@@ -30,17 +30,17 @@ Whenever I tried to use any of the ptrs (e.g qword ptr, byte ptr), I kept gettin
 
 I kept over flowing my buffer when trying to program *my_memeset* and *my_strncopy*. To give a specific example on this issue, within my_memset we were provided with a character value to be copied into each index of the array. You only need one byte to hold a character, however I was using an entire 64 bit register to access the value. This caused me to have a buffer overflow:
 
-*mov qword [rdi+rax], rsi*
+      mov qword [rdi+rax], rsi
 
 I kept getting segmentation faults after doing this. I didn't know why! I was using the proper syntax. In fact, I even copied syntax directly from the [slides](https://github.com/jalalah/389Rfall18/blob/master/week/5/Binaries%20I.pdf) and *still* got a segmentation fault. 
 
 After debugging more, I realized I misinterpreted how the different pointers functioned. If I only had a single character, that means I didn't need to use qword and allocate all that memory. I could just use byte! I quickly changed my code:
 
-*mov byte [rdi+rax], rsi*
+      mov byte [rdi+rax], rsi
 
 However, this still didn't work. After more debugging, I realized I also didn't need to use a 64 bit register for a single character. I just needed to access the part of the register that held 0-7 bits since a character's size is one byte. This is what brought me to the correct solution: 
 
-*mov byte [rdi+rax], sil*
+      mov byte [rdi+rax], sil
 
 The size of memory is enough to take in a single byte, and I'm also only moving a single byte of data into it.  
 
@@ -64,13 +64,13 @@ The algorithm  for an address is:
 
 I didn't need a scale or an offset, so I was only using a base and index. This made it easier to figure out what was going wrong in my code. I figured out this was happening because I was using my counter variable (rcx) as my index instead of creating a separate counter:
 
-*mov byte [rdi+rcx], sil*
+      mov byte [rdi+rcx], sil
 
 Programming it this way meant the counter started from a higher number (the string length) and went down, stopping one character short. This was why I was never converting that first character.
 
 When I created a separate counter (rax) and had that counter start from zero and go up, it worked. 
 
-*mov byte [rdi+rax], sil* 
+      mov byte [rdi+rax], sil
 
 # Final Results 
 
@@ -82,37 +82,30 @@ I have a loop in *my_memset* named *add_val*. This loop does exactly what the lo
 
 C Implementation:
 
-*for (i = 0; i < strl; i++)*
-
-    *str[i] = val;*
+    for (i = 0; i < strl; i++)
+         str[i] = val;
     
 add_val:
 
-*mov byte [rdi+rax], sil ; copying the value into the array *
-
-*inc rax       ; increasing counter *
-
-*loop add_val  ; this automatically decreases rcx by one *
+    mov byte [rdi+rax], sil ;copying the value into the array
+    inc rax                 ;increasing counter
+    loop add_val            ;this automatically decreases rcx by one
     
-I also have a loop in *my_strncpy* named *copy*. The loop within this function also does the exactly what the C implementation does: 
+I also have a loop in *my_strncpy* named *copy*. The loop within this function also does exactly what the C implementation does: 
 
 C Implementation:
 
-*for (i = 0; i < len; i++)*
-
-    *dst[i] = src[i];*
-
+    for (i = 0; i < len; i++)
+        dst[i] = src[i];
+    
 copy:
 
-*mov bl, byte[rsi+rax]  ; moving the character from src, to one byte register*
-
-*mov byte [rdi+rax], bl ; copying the value pulled from src into dst *
-
-*inc rax                ; increasing our counter*
-
-*loop copy      	       ; loops back to top and automatically decreases rcx by one	*
+    mov bl, byte[rsi+rax]  ;moving the character from src, to one byte register
+    mov byte [rdi+rax], bl ;copying the value pulled from src into dst
+    inc rax                ;increasing our counter*
+    loop copy      	      ;loops back to top and automatically decreases rcx by one
     
     
-The string length is what determines how long these loops will run. This is why I moved the value of rdx (holding the string length) into the rcx register. Since rcx automatically  decreases by one and stops a loop once it is zero. Using rcx meant I didn't have to do any extra comparisons or flags from within the loop to halt it, which made the process easier. 
+The string length is what determines how long these loops will run. This is why I moved the value of rdx (holding the string length) into the rcx register. the register rcx automatically decreases by one and stops a loop once it is zero. This meant I didn't have to do any extra comparisons or flags from within the loop to halt it, which made the process easier. 
 
 The full code can be found [here](https://github.com/jalalah/389Rfall18/blob/master/week/5/myfuncs.S).

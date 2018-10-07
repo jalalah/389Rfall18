@@ -83,12 +83,15 @@ I have a loop in *my_memset* named *add_val*. This loop does exactly what the lo
 C Implementation:
 
 *for (i = 0; i < strl; i++)*
+
     *str[i] = val;*
     
 add_val:
 
 *mov byte [rdi+rax], sil ; copying the value into the array *
+
 *inc rax       ; increasing counter *
+
 *loop add_val  ; this automatically decreases rcx by one *
     
 I also have a loop in *my_strncpy* named *copy*. The loop within this function also does the exactly what the C implementation does: 
@@ -96,13 +99,17 @@ I also have a loop in *my_strncpy* named *copy*. The loop within this function a
 C Implementation:
 
 *for (i = 0; i < len; i++)*
+
     *dst[i] = src[i];*
 
 copy:
 
 *mov bl, byte[rsi+rax]  ; moving the character from src, to one byte register*
+
 *mov byte [rdi+rax], bl ; copying the value pulled from src into dst *
+
 *inc rax                ; increasing our counter*
+
 *loop copy      	       ; loops back to top and automatically decreases rcx by one	*
     
     

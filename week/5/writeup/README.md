@@ -12,7 +12,7 @@ Digital acknowledgement of honor pledge: Jalalah
 ## Assignment 5 Writeup
 
 
-### Initial Research
+# Initial Research
 
 I have previous experience with Assembly AVR from taking CMSC216 - Introduction to Computer Systems. However, my memory of Assembly AVR wasn't that great, so going into this week's homework I found myself confused over a lot of assembly concepts I once knew. 
 
@@ -20,17 +20,7 @@ Because I'm a visual learner, I turned to YouTube for a deeper introduction to A
 
 After watching these videos, I reviewed the slides and they made a lot more sense. I was able to see the slides provided all the syntax/tools I needed to recreate the methods (memset and strncpy). After all this preparation, I had a clear view of how to start my assembly code.
 
-### Flow of my code
-
-My approach to creating both *my_memset* and *my_strncpy* in assembly was to first look at how the methods were implemented in C. I copied the same flow of the C implementation as much as I could because it was a solid base and a solution I knew worked. 
-
-In both *my_memset* and *my_strncpy* I only ever copied the string length parameter (third parameter for both methods) over to a new register. This means the registers *rdi* and *rsi* continued to hold the parameters passed into them.
-
-I have a loop in *my_memset* named *add_val* and a loop within *my_strncpy* named *copy*. The string length is what determines how long these loops will run. This is why I moved the value of rdx (holding the string length) into the rcx register. Since rcx automatically  decreases by one and stops a loop once it's zero. Using rcx meant I didn't have to do any extra comparisons or flags from within the loop to halt it. This made the process easier. 
-
-To copy the values into the arrays, I used the provided ptrs (within rdi for *my_memset* and rdi/rsi for *my_strncpy*) and byte ptrs.
-
-The code can be found [here](https://github.com/jalalah/389Rfall18/blob/master/week/5/myfuncs.S)
+# Encountered Errors
 
 ### Undefined Ptr Compiler Error
 
@@ -81,3 +71,41 @@ Programming it this way meant the counter started from a higher number (the stri
 When I created a separate counter (rax) and had that counter start from zero and go up, it worked. 
 
 *mov byte [rdi+rax], sil* 
+
+# Final Results 
+
+My approach to creating both *my_memset* and *my_strncpy* in assembly was to first look at how the methods were implemented in C. I copied the same flow of the C implementation as much as I could because it was a solid base and a solution I knew worked. 
+
+In both *my_memset* and *my_strncpy* I only ever copied the string length parameter (third parameter for both methods) over to a new register. This means the registers *rdi* and *rsi* continued to hold the parameters passed into them.
+
+I have a loop in *my_memset* named *add_val*. This loop does exactly what the loop in the C implementation does:
+
+C Implementation:
+
+*for (i = 0; i < strl; i++)*
+    *str[i] = val;*
+    
+add_val:
+
+*mov byte [rdi+rax], sil ; copying the value into the array *
+*inc rax       ; increasing counter *
+*loop add_val  ; this automatically decreases rcx by one *
+    
+I also have a loop in *my_strncpy* named *copy*. The loop within this function also does the exactly what the C implementation does: 
+
+C Implementation:
+
+*for (i = 0; i < len; i++)*
+    *dst[i] = src[i];*
+
+copy:
+
+*mov bl, byte[rsi+rax]  ; moving the character from src, to one byte register*
+*mov byte [rdi+rax], bl ; copying the value pulled from src into dst *
+*inc rax                ; increasing our counter*
+*loop copy      	       ; loops back to top and automatically decreases rcx by one	*
+    
+    
+The string length is what determines how long these loops will run. This is why I moved the value of rdx (holding the string length) into the rcx register. Since rcx automatically  decreases by one and stops a loop once it is zero. Using rcx meant I didn't have to do any extra comparisons or flags from within the loop to halt it, which made the process easier. 
+
+The full code can be found [here](https://github.com/jalalah/389Rfall18/blob/master/week/5/myfuncs.S).

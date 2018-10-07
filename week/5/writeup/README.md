@@ -28,7 +28,7 @@ Whenever I tried to use any of the ptrs (e.g qword ptr, byte ptr), I kept gettin
 
 ### Buffer Overflow Issues
 
-I kept over flowing my buffer when trying to program *my_memeset* and *my_strncopy*. To give a specific example on this issue, within my_memset we were provided with a character value to be copied into each index of the array. You only need one byte to hold a character, however I was using an entire 64 bit register to access the value. This caused me to have a buffer overflow:
+I kept over flowing my buffer when trying to program *my_memeset* and *my_strncopy*. To give a specific example on this issue, within my_memset we were provided with a character value to be copied into each index of the array. You only need one byte to hold a character, however, I was using an entire 64 bit register. This caused me to have a buffer overflow:
 
       mov qword [rdi+rax], rsi
 
@@ -103,7 +103,7 @@ copy:
     mov bl, byte[rsi+rax]  ;moving the character from src, to one byte register
     mov byte [rdi+rax], bl ;copying the value pulled from src into dst
     inc rax                ;increasing our counter*
-    loop copy      	      ;loops back to top and automatically decreases rcx by one
+    loop copy      	   ;loops back to top and automatically decreases rcx by one
     
     
 The string length is what determines how long these loops will run. This is why I moved the value of rdx (holding the string length) into the rcx register. the register rcx automatically decreases by one and stops a loop once it is zero. This meant I didn't have to do any extra comparisons or flags from within the loop to halt it, which made the process easier. 

@@ -2,6 +2,7 @@ Writeup 5 - Binaries I
 ======
 
 Name: Jalalah Abdullah
+
 Section: 0101
 
 I pledge on my honor that I have not given or received any unauthorized assistance on this assignment or examination.
@@ -21,7 +22,7 @@ After watching these videos, I reviewed the slides and they made a lot more sens
 
 ### Flow of my code
 
-My approach to creating both *my_memset* and *my_strncpy* in assembly was to first look at how the methods were implemented in C. I copied the same flow of this example as much as I could.
+My approach to creating both *my_memset* and *my_strncpy* in assembly was to first look at how the methods were implemented in C. I copied the same flow of the C implementation as much as I could because it was a solid base and a solution I knew worked. 
 
 In both *my_memset* and *my_strncpy* I only ever copied the string length parameter (third parameter for both methods) over to a new register. This means the registers *rdi* and *rsi* continued to hold the parameters passed into them.
 
@@ -58,11 +59,13 @@ The size of memory is enough to take in a single byte, and I'm also only moving 
 When I would copy over the new values into the array, it always stopped one character short. So I'd get the correct output starting from after the first character. As an example:
 
 Expected output for *my_memset*: **Hello zzzzz!**
+
 My output for *my_memset*: **Hello Hzzzz!**
 
 Similarly, my_strncpy provided incorrect output as well:
 
 Expected output: **Hello Hello!**
+
 My output: **Hello Wello!**
 
 The algorithm  for an address is: 

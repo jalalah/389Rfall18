@@ -11,7 +11,7 @@ Digital acknowledgement of honor pledge: Jalalah
 ## Assignment 5 Writeup
 
 
-# Initial Research
+### Initial Research
 
 I have previous experience with Assembly AVR from taking CMSC216 - Introduction to Computer Systems. However, my memory of Assembly AVR wasn't that great, so going into this week's homework I found myself confused over a lot of assembly concepts I once knew. 
 
@@ -35,7 +35,7 @@ The code can be found [here](https://github.com/jalalah/389Rfall18/blob/master/w
 
 Whenever I tried to use any of the ptrs (e.g qword ptr, byte ptr), I kept getting an error saying ptr was undefined. After seeking advice from an instructor on this error, I was told some compilers don't recognize the ptr command. That meant all I had to do was get rid of it and my code worked. 
 
-# Buffer Overflow Issues
+### Buffer Overflow Issues
 
 I kept over flowing my buffer when trying to program *my_memeset* and *my_strncopy*. To give a specific example on this issue, within my_memset we were provided with a character value to be copied into each index of the array. You only need one byte to hold a character, however I was using an entire 64 bit register to access the value. This caused me to have a buffer overflow:
 

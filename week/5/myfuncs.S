@@ -17,6 +17,10 @@ add_val:
                       ;and restores our saved base pointer, effectively
                       ;restoring our previous stack frame
         ret           ;jumps to the top value on the stack, hopefully the return address!
+<<<<<<< HEAD
+=======
+	
+>>>>>>> f8728511c80299794e678d21caed627b1f242865
 
 global my_strncpy     ;export the 'my_strncpy' symbol to be accessible outside of file
 my_strncpy:

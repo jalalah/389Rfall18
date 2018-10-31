@@ -1,31 +1,28 @@
 Writeup 8 - Forensics II, Network Analysis and File Carving/Parsing
 =====
 
-Name: *PUT YOUR NAME HERE*
-Section: *PUT YOUR SECTION HERE*
+ Name: Jalalah Abdullah
+Section: 0101
+ I pledge on my honor that I have not given or received anyunauthorized assistance on this assignment or examination.
 
-I pledge on my honor that I have not given or received anyunauthorized assistance on this assignment or examination.
+Digital acknowledgement of honor pledge: Jalalah Abdullah
+ ## Assignment 8 Writeup
+ ### Part 1 (45 Pts)
 
-Digital acknowledgement of honor pledge: *PUT YOUR NAME HERE*
+1. cornerstoneairlines.co
 
-## Assignment 8 Writeup
+2. laz0rh4x and c0uchpot4doz
 
-### Part 1 (45 Pts)
-1.
+3. 104.248.224.85 and 142.93.118.186. They're coming from New York
 
-2.
+4. port: 2749
 
-3.
+5. They're planning to meet on 1500 tomorrow
 
-4.
+6. They sent a shared google drive link: 
 
-5.
-
-6.
-
-7.
-
-### Part 2 (55 Pts)
+7. Tomorrow
+ ### Part 2 (55 Pts)
 
 *Report your answers to the questions about parsing update.fpff below.*
 1.

@@ -59,15 +59,50 @@ offset = 24 # 24 because that is where the header ends
 
 x = 1
 
-# Trying to go through all the sections here
+# Going through all the sections
 
-while (x <= 2):
+while (x <= 11):
 	sType,sLen = struct.unpack("<LL", data[offset:offset+8])
-	print ("Section number: %d" %int(x))
-	print("SECTION TYPE: %d"%int(sType))
+	print("\nSECTION TYPE: %d"%int(sType))
 	print("SECTION LEN: %d" %int(sLen))
-	x = x+1
-	offset = sLen + 8 # From doc, total size of section = slen + sizeof(sType) + sizeof(sLen). not sure if stype and slen's sizes are 4 bytes each tho. 
 	
-	# Will have to have switch statements here that check what kind of section it is
+	# switch statements here that check what kind of section it is
 
+	if (sType == 1):
+		print ("Png\n")
+
+	if (sType == 2):
+		print ("array of dwords\n")
+
+	if (sType == 3):
+		print ("UTF-8-encoded text\n")
+
+	if (sType == 4):
+		print ("array of doubles\n")
+
+	if (sType == 5):
+		print ("array of words\n")
+
+	if (sType == 6):
+		print ("(lat, long) tuple of doubles\n")
+
+	if (sType == 7):
+		print ("index of another section\n")
+
+	if (sType == 9):
+		print ("asci\n")
+
+	x = x+1
+	offset = offset + (sLen + 8) 
+	
+
+
+
+
+
+
+
+
+
+
+# hi

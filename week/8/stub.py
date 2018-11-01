@@ -45,7 +45,7 @@ print("TIMESTAMP: %d" % int(timestamp))
 
 offset = 12 # 12 now because the timestamp was 4 bytes
 
-author, deadValue = struct.unpack("<LL", data[offset:offset+8])
+author,deadValue = struct.unpack("<LL", data[offset:offset+8])
 print("AUTHOR: %s" % str (author))
 
 offset = 20 # 20 because author was 8 bytes
@@ -61,36 +61,75 @@ x = 1
 
 # Going through all the sections
 
-while (x <= 11):
+while (x <=11):
+	
+ 	# When offset = 247093, an error occurs
 	sType,sLen = struct.unpack("<LL", data[offset:offset+8])
 	print("\nSECTION TYPE: %d"%int(sType))
 	print("SECTION LEN: %d" %int(sLen))
 	
 	# switch statements here that check what kind of section it is
 
+	# png
 	if (sType == 1):
-		print ("Png\n")
-
+		# 89 50 4E 47 0D 0A 1A 0A
+		png, = struct.unpack("<%ds" %sLen, data[offset:offset+sLen])
+		pngMagic = "89 50 4E 47 0D 0A 1A 0A" + str(png)
+		
+	# Array of dwords
 	if (sType == 2):
-		print ("array of dwords\n")
 
+		amountOfWords = sLen/8
+		dwordOffset = offset
+		print("Amount of words %s" %int(amountOfWords))
+
+		while (amountOfWords >= 0): 
+			dword1,dword2 = struct.unpack("<LL", data[dwordOffset:dwordOffset+(8)])
+			print(str(dword1), str(dword2))
+			amountOfWords = amountOfWords - 1
+			dwordOffset = dwordOffset + 8
+
+	# UTF-8-enconded text
 	if (sType == 3):
-		print ("UTF-8-encoded text\n")
+		UTF, = struct.unpack("<%ds" %sLen, data[offset:offset+sLen])
+		print(str(UTF))
 
+	# Array of doubles
 	if (sType == 4):
-		print ("array of doubles\n")
-
+		print("hi")	
+	# Array of words
 	if (sType == 5):
-		print ("array of words\n")
+		amountOfWords = (sLen / 4)
+		wordOffset = offset
+		print("Amount of words %d" %int(amountOfWords))
 
+		while (amountOfWords >= 0): 
+			word1,word2 = struct.unpack("<LL", data[wordOffset:wordOffset+(8)])
+			print(str(word1), str(word2))
+			amountOfWords = amountOfWords - 2
+			wordOffset = wordOffset + 8
+
+
+	# (lat, long) tuple of doubles
 	if (sType == 6):
-		print ("(lat, long) tuple of doubles\n")
+		amountOfWords = (sLen / 4)
+		wordOffset = offset
+		print("Amount of words %d" %int(amountOfWords))
 
+		while (amountOfWords >= 0): 
+			word1,word2 = struct.unpack("<LL", data[wordOffset:wordOffset+(8)])
+			print(str(word1), str(word2))
+			amountOfWords = amountOfWords - 2
+			wordOffset = wordOffset + 8
+
+	# Index of another section
 	if (sType == 7):
-		print ("index of another section\n")
+		print("hi")
 
+	# asci value
 	if (sType == 9):
-		print ("asci\n")
+		asci, = struct.unpack("<%ds" %sLen, data[offset:offset+sLen])
+		print(str(asci))
 
 	x = x+1
 	offset = offset + (sLen + 8) 

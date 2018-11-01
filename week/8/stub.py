@@ -33,10 +33,32 @@ if version != VERSION:
     bork("Bad version! Got %d, expected %d" % (int(version), int(VERSION)))
 
 print("------- HEADER -------")
+
 print("MAGIC: %s" % hex(magic))
 print("VERSION: %d" % int(version))
+
+offset = 8 #Starting at 8 because we already got to the magic and version
+
+timestamp, deadValue = struct.unpack("<LL", data[offset:offset+8])
+
+print("TIMESTAMP: %s" %int(timestamp))
+
+offset= offset + 8
+
+author, deadValue = struct.unpack("<LL", data[offset:offset+8])
+
+print("AUTHOR: %s" %int(author))
+
+offset=offset+8
+
+sectionCount, deadValue = struct.unpack("<LL", data[offset:offset+8])
+
+print("SECTION COUNT: %s" %int(sectionCount))
+
+
 
 # We've parsed the magic and version out for you, but you're responsible for
 # the rest of the header and the actual FPFF body. Good luck!
 
 print("-------  BODY  -------")
+

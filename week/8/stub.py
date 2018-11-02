@@ -70,7 +70,7 @@ while (x <=11):
 	
 	# switch statements here that check what kind of section it is
 
-	# png
+	# png NOT DONE
 	if (sType == 1):
 		# 89 50 4E 47 0D 0A 1A 0A
 		png, = struct.unpack("<%ds" %sLen, data[offset:offset+sLen])
@@ -79,14 +79,14 @@ while (x <=11):
 	# Array of dwords
 	if (sType == 2):
 
-		amountOfWords = sLen/8
+		dWords = sLen/8
 		dwordOffset = offset
-		print("Amount of words %s" %int(amountOfWords))
+		print("Amount of dwords %s" %int(dWords))
 
-		while (amountOfWords >= 0): 
-			dword1,dword2 = struct.unpack("<LL", data[dwordOffset:dwordOffset+(8)])
-			print(str(dword1), str(dword2))
-			amountOfWords = amountOfWords - 1
+		while (dWords > 0): 
+			dword1, deadValue = struct.unpack("<LL", data[dwordOffset:dwordOffset+8])
+			print(str(dword1))
+			dWords = dWords - 1
 			dwordOffset = dwordOffset + 8
 
 	# UTF-8-enconded text
@@ -96,35 +96,42 @@ while (x <=11):
 
 	# Array of doubles
 	if (sType == 4):
-		print("hi")	
+		doubles = (sLen / 8)
+		dOffset = offset
+		print("Amount of doubles %d" %int(doubles))
+
+		while (doubles > 0): 
+			double1, = struct.unpack("<LL", data[dOffset:dOffset+8])
+			print(str(double1))
+			doubles = doubles - 1
+			dOffset = dOffset + 8	
 	# Array of words
 	if (sType == 5):
-		amountOfWords = (sLen / 4)
+		words = (sLen / 4)
 		wordOffset = offset
-		print("Amount of words %d" %int(amountOfWords))
+		print("Amount of words %d" %int(words))
 
-		while (amountOfWords >= 0): 
-			word1,word2 = struct.unpack("<LL", data[wordOffset:wordOffset+(8)])
-			print(str(word1), str(word2))
-			amountOfWords = amountOfWords - 2
-			wordOffset = wordOffset + 8
-
+		while (words > 0): 
+			word1, deadValue = struct.unpack("<LL", data[wordOffset:wordOffset+8])
+			print(str(word1))
+			words = words - 1
+			wordOffset = wordOffset + 4
 
 	# (lat, long) tuple of doubles
 	if (sType == 6):
-		amountOfWords = (sLen / 4)
-		wordOffset = offset
-		print("Amount of words %d" %int(amountOfWords))
+		#amountOfDoubles = (sLen / 4)
+		dOffset = offset
+		#print("Amount of doubles %d" %int(doubles))
 
-		while (amountOfWords >= 0): 
-			word1,word2 = struct.unpack("<LL", data[wordOffset:wordOffset+(8)])
-			print(str(word1), str(word2))
-			amountOfWords = amountOfWords - 2
-			wordOffset = wordOffset + 8
+		#while (amountOfDoubles > 0): 
+		word1,word2 = struct.unpack("<LL", data[wordOffset:wordOffset+8])
+		print(str(word1), str(word2))
+		#	amountOfDoubles = amountOfDoubles - 2
+		#	wordOffset = wordOffset + 8
 
 	# Index of another section
 	if (sType == 7):
-		print("hi")
+		word, deadValue = struct.unpack("<LL", data[offset: offset+8])
 
 	# asci value
 	if (sType == 9):
@@ -134,14 +141,3 @@ while (x <=11):
 	x = x+1
 	offset = offset + (sLen + 8) 
 	
-
-
-
-
-
-
-
-
-
-
-# hi

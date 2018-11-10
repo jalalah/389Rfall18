@@ -70,27 +70,31 @@ while (offset < len(data)):
 
 	# png NOT DONE
 	if (sType == 1):
-		# 89 50 4E 47 0D 0A 1A 0A <-- Magic pbytes for png
-		png, = struct.unpack("<%ds" %sLen, data[offset:offset+sLen])
-		pngMagic = "89 50 4E 47 0D 0A 1A 0A "
-		#print(hex(png))
-		file = open("hmrk8", "w")
-		file.write(pngMagic + str(png))
-		file.close()
+		# 89 50 4E 47 0D 0A 1A 0A <-- Magic bytes for png
+		png = data[offset+8:offset+sLen+8]
+		pngMagic = [0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A]
+		pngMagic = bytearray(pngMagic)
+		pngFooter = [0x49, 0x45, 0x4E, 0x44, 0xAE, 0x42, 0x60, 0x82]
+		pngFooter = bytearray(pngFooter)
+		f = open("hmrk8", "wb")
+		f.write(pngMagic)
+		f.write(png)
+		f.write(pngFooter)
+		f.close()
 		
 	# Array of dwords. dwords are 8 bytes
 	if (sType == 2):
 		dWords = sLen/8  #Amount of dwords there are
-		dOffset = offset
+		dOffset = offset+8
 		print("Amount of dwords %s" %int(dWords))
-
+		print(sLen)
 		while (dWords > 0): 
 			# This one makes me have a second argument for my tuple
 			# Even tho a dword is supposed to take all 8 bytes
-			dword1, deadVal = struct.unpack("<LL", data[dOffset:dOffset+8])
+			dword1, = struct.unpack("<L", data[dOffset+4:dOffset+sLen+4])
 			print(str(dword1))
 			dWords = dWords - 1
-			dOffset = dOffset + 8
+			dOffset = dOffset + 4
 
 	# UTF-8-enconded text
 	if (sType == 3):
@@ -136,7 +140,7 @@ while (offset < len(data)):
 
 	# asci value
 	if (sType == 9):
-		asci, = struct.unpack("<%ds" %sLen, data[offset:offset+sLen])
+		asci, = struct.unpack("<%ds" %sLen, data[offset+8:offset+sLen+8])
 		print(str(asci))
 
 	offset = offset + (sLen + 8) 

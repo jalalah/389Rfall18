@@ -1,3 +1,20 @@
+
+#Password1: 
+# salt: k 
+#word: neptune
+
+#Password2: 
+# salt: p 
+#word: pizza
+
+#Password3: 
+# salt: u 
+#word: loveyou
+
+#Password4: 
+# salt: m 
+#word: jordan
+
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 

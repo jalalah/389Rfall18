@@ -124,9 +124,7 @@ After getting the value to be hashed, I followed a similar pattern to the comput
 
 1. Perform the desired hash algorithm using hashlib.*desiredAlgorithmHere*(stringToBeHashed) and save the result
 
-        result = hashlib.sha224((return_password(index,data)).strip('>\n')) 
-        
-Notice, The string had > characters and a newline at the end that needed to be stripped
+        result = hashlib.md5("HG56T3QWK") 
 
 2. Take the value of the last step and use hexdigest on it: returnedValueFromStep1.hexdigit()
 
@@ -135,7 +133,7 @@ Notice, The string had > characters and a newline at the end that needed to be s
 3. Send that value to the server
 
         s.send(encrypt)
-		s.send("\n")
+	s.send("\n")
         
 This was done 11 times before the flag was uncovered: CMSC389R-{H4sh-5l!ngInG-h@sH3r}
 

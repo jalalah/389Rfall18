@@ -133,7 +133,7 @@ After getting the value to be hashed, I followed a similar pattern to the comput
 3. Send that value to the server
 
         s.send(encrypt)
-	s.send("\n")
+		s.send("\n")
         
 This was done 11 times before the flag was uncovered: CMSC389R-{H4sh-5l!ngInG-h@sH3r}
 

@@ -14,7 +14,7 @@ Digital acknowledgement of honor pledge: Jalalah
 
 # Overview 
 
-I suspected the digital notery living on *nc 142.93.118.186 1234* was susceptible to a [hash length extenwion attack](https://en.wikipedia.org/wiki/Length_extension_attack). With that suspicion and having gathered the knowledge the secret was between 6 and 15 bytes, I coded a script to exploit this potential vulnerability. 
+I suspected the digital notery living on *nc 142.93.118.186 1234* was susceptible to a [hash length extension attack](https://en.wikipedia.org/wiki/Length_extension_attack). With that suspicion and having gathered the knowledge the secret was between 6 and 15 bytes, I coded a script to exploit this potential vulnerability. 
 
 To exploit the vulnerability, I made a forged signature (fake_hash) and sent over payload (message + padding + malicious). Now, when the server computes the signature of payload, it will prepend a "secret" which will result in a hash equal to the original fake_hash that was sent in.
 
@@ -24,9 +24,9 @@ This script was programmed using [socket](https://docs.python.org/3/library/sock
 
 I used a socket to connect to the server. I chose option 1 and sent it a message so I could recieve the hash the server outputted. This hash contained my message with a prepended secret attached to it. After I recieved the hash the server sent back, I updated it to have a malicious message attatched to the end of it. This created our fake hash. 
 
-Our fake hash is the first argument we will send to the server when choosing option 2. However, before we send it, we had to craft our payload. Our payload is going to contain our message + padding + malicious (where malicious is the malicious message tacked onto the end of legit). If my suspicion about a hash length extension attack is true, I don't even need to know what the secret is, I could just use the padding to my advantage.
+Our fake hash is the first argument we will send to the server when choosing option 2. However, before we send it, we had to craft our payload. Our payload is going to contain our message + padding + malicious (where malicious is the malicious message tacked onto the end of the original hash). If my suspicion about a hash length extension attack is true, I don't even need to know what the secret is, I could just use the padding to my advantage.
 
-Deciding what the padding will be is where it got tricky, but luckily I knew the secret message was between 6 and 15 bytes. Thus, I created a loop that tested the different lengths (from 6-15) and added the appropriate padding until I was able to retrieve the flag. To correctly execute MD5 padding, I used the information on (this)[https://github.com/jalalah/389Rfall18/blob/master/week/10/Crypto-2.pdf] slideset. 
+Deciding what the padding will be is where it got tricky, but luckily I knew the secret message was between 6 and 15 bytes. Thus, I created a loop that tested the different lengths (from 6-15) and added the appropriate padding until I was able to retrieve the flag. To correctly execute MD5 padding, I used the information on [this]([https://github.com/jalalah/389Rfall18/blob/master/week/10/Crypto-2.pdf) slideset. 
 
 Flag: CMSC389R-{i_still_put_the_M_between_the_DV}
 
@@ -40,11 +40,11 @@ Import someone else's public key:
 
     gpg --import pgpassignment.key
     
-Encrypt a message for someone else: 
+Encrypt a message for someone else (message.private holds the message meant to encrypt): 
 
     gpg -e -r "Recipient's Name" message.private
     
-Decrypt a message (message.private holds the message meant to encrypt):
+Decrypt a message (the previous step generated message.private.gpg):
 
     gpg --decrypt message.private.gpg
    

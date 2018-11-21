@@ -22,13 +22,9 @@ This script was programmed using [socket](https://docs.python.org/3/library/sock
 
 # Script Breakdown
 
-I used a socket to connect to the server. I chose option 1 and sent it a message so I could recieve the hash the server outputted. 
+I used a socket to connect to the server. I chose option 1 and sent it a message so I could recieve the hash the server outputted. This hash contained my message with a prepended secret attached to it. After I recieved the hash the server sent back, I updated it to have a malicious message attatched to the end of it. This created our fake hash. 
 
-This hash contained my message with a prepended secret attached to it. After I recieved the hash the server sent back, I updated it to have a malicious message attatched to the end of it. 
-
-This created our fake hash. Our fake hash is the first argument we will send to the server when choosing option 2. However, before we send it, we had to craft our payload.
-
-Our payload is going to contain our message + padding + malicious (where malicious is the malicious message tacked onto the end of legit). If my suspicion about a hash length extension attack is true, I don't even need to know what the secret is. I could just use the padding.
+Our fake hash is the first argument we will send to the server when choosing option 2. However, before we send it, we had to craft our payload. Our payload is going to contain our message + padding + malicious (where malicious is the malicious message tacked onto the end of legit). If my suspicion about a hash length extension attack is true, I don't even need to know what the secret is. I could just use the padding.
 
 Deciding what the padding will be is where it got tricky, but luckily I knew the secret message was between 6 and 15 bytes. Thus, I created an loop that tested the different lengths (from 6-15) until I was able to retrieve the flag.
 

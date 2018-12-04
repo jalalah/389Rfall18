@@ -40,7 +40,20 @@ Level 3:
 
 Initially, I began tagging on script commands to the end of the URL just to see what happened. This didn't get me anywhere. I decided to inspect each image and I foumd that what I typed into the search bar was concatenated within an HTML img tag. I continuously tried to execute the script "=0 onerror = alert(0)" but nothing happenned. I tried to add semi colons before and after, I tried closing the image url and creating a new one with my malicious attack, I tried executing my malicious code and commenting out whatever went after that.
 
-After much back and forth, I eventually toggled teh code and view index.html. It was there that I realized single quotes were being used in the img tag. I swapped my double quotes out for that and my alert went through.  
+After much back and forth, I eventually toggled the code and view index.html. It was there that I realized single quotes were being used in the img tag. I swapped my double quotes out for that and my alert went through.  
 
     ' onerror = "alert(0)";
+
+Level 4:
+
+I toggled the code and viewed all the hints before I even had an idea how to start approaching this level. 
+
+When I inserted the single ' into the timer input, I viewed the error console and saw this: 
+
+        SyntaxError: '' string literal contains an unescaped line break
+        
+ When I added another single quote, I got this error message:
+ 
+ 
+
 

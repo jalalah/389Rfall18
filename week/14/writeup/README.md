@@ -52,8 +52,21 @@ When I inserted the single ' into the timer input, I viewed the error console an
 
         SyntaxError: '' string literal contains an unescaped line break
         
- When I added another single quote, I got this error message:
- 
+I kept playing around with the URL and finally ended up with 
+
+Level 5:
+
+This level I passed within my first few dummy tries in launching an attack.
+
+My first try I was putting <script>alert(0)</script> into the URL and executing that. That did not work. Then, I tried doing javascript:alert(0) and it worked!!
+
+So the steps I took
+
+* https://xss-game.appspot.com/level5/frame/signup?next=javascript:alert(0); 
+* entered in anything into the mail bar
+* submit next
+
+All done
  
 
 

@@ -6,23 +6,38 @@ Section: 0101
 
 I pledge on my honor that I have not given or received any unauthorized assistance on this assignment or examination.
 
-Digital acknowledgement of honor pledge: Jalalah
+Digital acknowledgement of honor pledge: Jalalah Abdullah
 
 ## Assignment 10 Writeup
 
 ### Part 1 (70 Pts)
 
+Upon hearing rumors the Cornerstone Airlines Shop was vulnerable to an SQL Injection attack, I decided to look around for myself. 
+
+The site was not extensive, there was only an About and Home tab. Within the about tag was information on the site and the Home tag hosted 3 links to items available for selling.
+
+Upon clicking on the links I realized they all ended with the same tag
+
+        http://cornerstoneairlines.co:8080/item?id=ITEM-NUMBER-PLACED-HERE
+        
+Where a number 0-3 replaced *ITEM-NUMBER-PLACED-HERE* depending on what item was selected. I realized this was susceptable to an SQL Injection attack. Using an Auth Bypass I came across [here](https://www.owasp.org/index.php/SQL_Injection_Bypassing_WAF), I inserted it into the end of the link
+
+        http://cornerstoneairlines.co:8080/item?id= or 1-- -' or 1 or '1"or 1 or"
+        
+After doing that, all the tables dropped and I unconvered the flag. 
+
+Flag: CMSC38R- {y0U-are_the_5ql_n1nja}
 
 ### Part 2 (30 Pts)
 
-#Level 1: 
+# Level 1: 
 
 From slide 70 of [this](https://www.cs.umd.edu/class/fall2018/cmsc330/lectures/22-web-security.pdf) slideset (specifically slide 70), I got the command:
 
     <script>alert(0)</script> 
 when executed into the first challenge, it succeeded. 
 
-#Level 2:
+# Level 2:
 
 I tried the same command from level 1, however, my message didn't even pop up. I proceeded to try different ways to write out javascript tags (make spaces and new lines between characters), however, they still would not execute or even show up on the message board. 
 
@@ -36,7 +51,7 @@ However, this does not work. I then searched if I could execute JavaScript throu
     
 With this, I passed level 2.
 
-#Level 3: 
+# Level 3: 
 
 Initially, I began tagging on script commands to the end of the URL just to see what happened. This didn't get me anywhere. I decided to inspect each image and I foumd that what I typed into the search bar was concatenated within an HTML img tag. I continuously tried to execute the script "=0 onerror = alert(0)" but nothing happenned. I tried to add semi colons before and after, I tried closing the image url and creating a new one with my malicious attack, I tried executing my malicious code and commenting out whatever went after that.
 
@@ -44,7 +59,7 @@ After much back and forth, I eventually toggled the code and view index.html. It
 
     ' onerror = "alert(0)";
 
-#Level 4:
+# Level 4:
 
 I toggled the code and viewed all the hints before I even had an idea how to start approaching this level. 
 
@@ -74,7 +89,7 @@ However, this still did not work. After reviewing the hints, I was reminded of h
  
 This succeeded and I passed to the next round!
 
-#Level 5:
+# Level 5:
 
 This level I passed within my first few dummy tries in launching an attack.
 
@@ -88,6 +103,12 @@ So the steps I took
 
 All done
  
-#Level 6:
+# Level 6:
 
+This one had be stumped for a good minute. I read through the hints and toggled the code, but I didn't seem to get anything other than my message needed to be inserted after the 'frame#' in the URL and the https the html code was blocking was not case sensitive.
 
+Originally, I tried to create a link from paste bin with a malicious message, however, it was brought to my attention that accessing a third party site would not work.
+
+I then discovered [Mozilla Data URLS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) which allow content creators to embed small files inline in documents. This is perfect! 
+
+        #data:text/javascript,alert(0);

@@ -16,7 +16,7 @@ Upon hearing rumors the Cornerstone Airlines Shop was vulnerable to an SQL Injec
 
 The site was not extensive, there was only an About and Home tab. Within the about tag was information on the site and the Home tag hosted 3 links to items available for selling.
 
-Upon clicking on the links I realized they all ended with the same tag
+Upon clicking on the links mentioned above, I realized they all ended with the same tag
 
         http://cornerstoneairlines.co:8080/item?id=ITEM-NUMBER-PLACED-HERE
         
@@ -30,16 +30,17 @@ Flag: CMSC38R- {y0U-are_the_5ql_n1nja}
 
 ### Part 2 (30 Pts)
 
-# Level 1: 
+# Level 1
 
-From slide 70 of [this](https://www.cs.umd.edu/class/fall2018/cmsc330/lectures/22-web-security.pdf) slideset (specifically slide 70), I got the command:
+From slide 70 of [this](https://www.cs.umd.edu/class/fall2018/cmsc330/lectures/22-web-security.pdf) slideset, I got the command:
 
     <script>alert(0)</script> 
+    
 when executed into the first challenge, it succeeded. 
 
-# Level 2:
+# Level 2
 
-I tried the same command from level 1, however, my message didn't even pop up. I proceeded to try different ways to write out javascript tags (make spaces and new lines between characters), however, they still would not execute or even show up on the message board. 
+I tried the same command from level 1, however, my message didn't even pop up. I proceeded to try different ways to write out javascript tags (e.g. make spaces and new lines between characters), however, they still would not execute or even show up on the message board. 
 
 From the same slide set mentioned previously, I got the idea to execute Javascript through CSS instead by using a background image URL: 
 
@@ -51,15 +52,21 @@ However, this does not work. I then searched if I could execute JavaScript throu
     
 With this, I passed level 2.
 
-# Level 3: 
+# Level 3
 
-Initially, I began tagging on script commands to the end of the URL just to see what happened. This didn't get me anywhere. I decided to inspect each image and I foumd that what I typed into the search bar was concatenated within an HTML img tag. I continuously tried to execute the script "=0 onerror = alert(0)" but nothing happenned. I tried to add semi colons before and after, I tried closing the image url and creating a new one with my malicious attack, I tried executing my malicious code and commenting out whatever went after that.
+Initially, I began tagging on script commands to the end of the URL just to see what happened. This didn't get me anywhere. I decided to inspect each image and I found that what I typed into the search bar was concatenated within an HTML img tag. 
 
-After much back and forth, I eventually toggled the code and view index.html. It was there that I realized single quotes were being used in the img tag. I swapped my initial double quote out for that and my alert went through.  
+I continuously tried to execute the script *"=0 onerror = "alert(0)";* but nothing happenned. Some other things I tried was 
+
+* Adding semi colons before and after the malicious code
+* Closing the image url and creating a new one with my malicious attack
+* Executing my malicious code and commenting out whatever went after that.
+
+After much back and forth, I eventually toggled the code and viewed index.html. It was there that I realized single quotes were being used in the img tag. I swapped my initial double quote out for that and my alert went through.  
 
     ' onerror = "alert(0)";
 
-# Level 4:
+# Level 4
 
 I toggled the code and viewed all the hints before I even had an idea how to start approaching this level. 
 
@@ -89,7 +96,7 @@ However, this still did not work. After reviewing the hints, I was reminded of h
  
 This succeeded and I passed to the next round!
 
-# Level 5:
+# Level 5
 
 This level I passed within my first few dummy tries in launching an attack.
 
@@ -103,12 +110,12 @@ So the steps I took
 
 All done
  
-# Level 6:
+# Level 6
 
-This one had be stumped for a good minute. I read through the hints and toggled the code, but I didn't seem to get anything other than my message needed to be inserted after the 'frame#' in the URL and the https the html code was blocking was not case sensitive.
+This one had me stumped for a good minute. I read through the hints and toggled the code, but I didn't seem to get anything other than my message needed to be inserted after the 'frame#' in the URL and the https the html code was blocking was not case sensitive.
 
 Originally, I tried to create a link from paste bin with a malicious message, however, it was brought to my attention that accessing a third party site would not work.
 
 I then discovered [Mozilla Data URLS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) which allow content creators to embed small files inline in documents. This is perfect! 
 
-        #data:text/javascript,alert(0);
+        https://xss-game.appspot.com/level6/frame#data:text/javascript,alert(0);
